@@ -1,0 +1,17 @@
+{
+  "name": "OneClick - Custom MiniMax H3 R2VA",
+  "containerDiskInGb": 30,
+  "volumeInGb": 100,
+  "volumeMountPath": "/workspace",
+  "ports": "8188/http",
+  "env": {
+    "WORKSPACE_PATH": "/workspace",
+    "COMFYUI_PORT": "8188",
+    "DOWNLOAD_H3_MODELS": "true",
+    "DOWNLOAD_TURBO_LORA": "true",
+    "DEFAULT_H3_QUANT": "int8",
+    "MODEL_DOWNLOAD_BACKGROUND": "false",
+    "INSTALL_OPTIONAL_RIFE": "true",
+    "INSTALL_OPTIONAL_UPSCALER": "true"
+  }
+}
