@@ -1,0 +1,2587 @@
+{
+  "id": "33ad1a63-8a00-4fbf-ac57-c211d164efa6",
+  "revision": 1,
+  "last_node_id": 34,
+  "last_link_id": 72,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "MarkdownNote",
+      "pos": [
+        650,
+        2220
+      ],
+      "size": [
+        570,
+        440
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "QUICK SETTINGS / LoRA STRENGTH GUIDE",
+      "properties": {},
+      "widgets_values": [
+        "## LoRA strengths\n**User H3 LoRAs**\n- 0.30–0.55: subtle\n- 0.60–0.80: moderate / good starting range\n- 0.85–1.00: strong; stacking several this high can fight prompt/reference conditioning\n\n**Ref2V Turbo LoRA**\n- 0.70–0.80: lighter Turbo influence\n- **0.85: default**\n- 0.95–1.00+: stronger Turbo influence; can reduce nuance\n\n## Reference size\n- `match`: safer/faster, especially for 10–15s or many refs\n- `max`: stronger high-res reference conditioning but heavier\n"
+      ],
+      "widgets_values_named": {
+        "text": "## LoRA strengths\n**User H3 LoRAs**\n- 0.30–0.55: subtle\n- 0.60–0.80: moderate / good starting range\n- 0.85–1.00: strong; stacking several this high can fight prompt/reference conditioning\n\n**Ref2V Turbo LoRA**\n- 0.70–0.80: lighter Turbo influence\n- **0.85: default**\n- 0.95–1.00+: stronger Turbo influence; can reduce nuance\n\n## Reference size\n- `match`: safer/faster, especially for 10–15s or many refs\n- `max`: stronger high-res reference conditioning but heavier\n"
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 3,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "pos": [
+        5400,
+        2000
+      ],
+      "size": [
+        636.4408569227734,
+        136.18957362986293
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "OPTIONAL POST-FX TOGGLES — RIFE / UPSCALE",
+      "properties": {
+        "matchColors": "Purple",
+        "matchTitle": "",
+        "showNav": true,
+        "showAllGraphs": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default"
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 4,
+      "type": "MarkdownNote",
+      "pos": [
+        1800,
+        2220
+      ],
+      "size": [
+        520,
+        320
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "H3 CORE NOTES",
+      "properties": {},
+      "widgets_values": [
+        "## Core defaults\n- Native output: **24 FPS video + H3 audio**\n- Model: `minimax_h3_ref2va_pruned_int8_convrot.safetensors`\n- Text encoder: official H3 Qwen3-VL INT8\n- Turbo: current Ref2V 4-step LoRA at 0.85\n- `ref_image_size=match` recommended for long/reference-heavy runs\n\nThe native output does not require RIFE or the TensorRT upscaler."
+      ],
+      "widgets_values_named": {
+        "text": "## Core defaults\n- Native output: **24 FPS video + H3 audio**\n- Model: `minimax_h3_ref2va_pruned_int8_convrot.safetensors`\n- Text encoder: official H3 Qwen3-VL INT8\n- Turbo: current Ref2V 4-step LoRA at 0.85\n- `ref_image_size=match` recommended for long/reference-heavy runs\n\nThe native output does not require RIFE or the TensorRT upscaler."
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 5,
+      "type": "MarkdownNote",
+      "pos": [
+        1250,
+        2220
+      ],
+      "size": [
+        520,
+        300
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "MODEL / CIVITAI PATHS",
+      "properties": {},
+      "widgets_values": [
+        "## Model folders\n- H3 model → `ComfyUI/models/diffusion_models/`\n- H3 text encoder → `ComfyUI/models/text_encoders/`\n- H3 VAEs → `ComfyUI/models/vae/`\n- **CivitAI H3 LoRAs → `ComfyUI/models/loras/`**\n\nAfter downloading a new LoRA, refresh models or restart ComfyUI, then select/add it in **H3 USER LoRAs**."
+      ],
+      "widgets_values_named": {
+        "text": "## Model folders\n- H3 model → `ComfyUI/models/diffusion_models/`\n- H3 text encoder → `ComfyUI/models/text_encoders/`\n- H3 VAEs → `ComfyUI/models/vae/`\n- **CivitAI H3 LoRAs → `ComfyUI/models/loras/`**\n\nAfter downloading a new LoRA, refresh models or restart ComfyUI, then select/add it in **H3 USER LoRAs**."
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 6,
+      "type": "ResolutionSelector",
+      "pos": [
+        2100,
+        780
+      ],
+      "size": [
+        270,
+        170
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "showAdvanced": true,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            48,
+            51
+          ]
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            49,
+            52
+          ]
+        }
+      ],
+      "title": "GENERATION RESOLUTION — HIGH PRESET",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "ResolutionSelector"
+      },
+      "widgets_values": [
+        "16:9 (Widescreen)",
+        0.98,
+        32
+      ],
+      "widgets_values_named": {
+        "aspect_ratio": "16:9 (Widescreen)",
+        "megapixels": 0.98,
+        "multiple": 32
+      },
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 9,
+      "type": "MarkdownNote",
+      "pos": [
+        2350,
+        2220
+      ],
+      "size": [
+        700,
+        380
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "REFERENCE + LONG-CLIP TROUBLESHOOTING",
+      "properties": {},
+      "widgets_values": [
+        "# Troubleshooting\n\n- You can change **1 ↔ 9 images** without touching wires.\n- You can add/remove video/audio references in the Reference Manager without rewiring the graph.\n- Reference videos must contain at least 5 frames.\n- For 10–15 second generations, use `match` first and test the **native 24 FPS output** before enabling post-FX.\n- If ComfyUI says reconnecting but the terminal sampler is still advancing, the backend job may still be alive.\n- If a long output turns to noise, compare the native output with the RIFE/upscaled output to locate where corruption begins.\n"
+      ],
+      "widgets_values_named": {
+        "text": "# Troubleshooting\n\n- You can change **1 ↔ 9 images** without touching wires.\n- You can add/remove video/audio references in the Reference Manager without rewiring the graph.\n- Reference videos must contain at least 5 frames.\n- For 10–15 second generations, use `match` first and test the **native 24 FPS output** before enabling post-FX.\n- If ComfyUI says reconnecting but the terminal sampler is still advancing, the backend job may still be alive.\n- If a long output turns to noise, compare the native output with the RIFE/upscaled output to locate where corruption begins.\n"
+      },
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 10,
+      "type": "AutoRifeTensorrt",
+      "pos": [
+        5000,
+        1280
+      ],
+      "size": [
+        311.24876401618576,
+        229.6878304442398
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "frames",
+          "type": "IMAGE",
+          "link": 4
+        },
+        {
+          "name": "rife_trt_model",
+          "type": "RIFE_TRT_MODEL",
+          "link": 5
+        },
+        {
+          "name": "interpolation_states",
+          "shape": 7,
+          "type": "INTERPOLATION_STATES",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            6
+          ]
+        }
+      ],
+      "title": "OPTIONAL — RIFE 48 FPS (toggle with OPTIONS)",
+      "properties": {
+        "aux_id": "huchukato/ComfyUI-RIFE-TensorRT-Auto",
+        "ver": "51d88c0c0db49308dd3ade9edd4a5c1bcdf4ec72",
+        "Node name for S&R": "AutoRifeTensorrt"
+      },
+      "widgets_values": [
+        100,
+        2,
+        false,
+        1,
+        ""
+      ],
+      "widgets_values_named": {
+        "clear_cache_after_n_frames": 100,
+        "multiplier": 2,
+        "keep_model_loaded": false,
+        "batch_size": 1,
+        "multiplier_list": ""
+      },
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 11,
+      "type": "AutoLoadRifeTensorrtModel",
+      "pos": [
+        5000,
+        1150
+      ],
+      "size": [
+        322.5669921875,
+        130
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "custom_config",
+          "shape": 7,
+          "type": "RIFE_RESOLUTION_CONFIG",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rife_trt_model",
+          "type": "RIFE_TRT_MODEL",
+          "links": [
+            5
+          ]
+        }
+      ],
+      "title": "OPTIONAL — RIFE MODEL (toggle with OPTIONS)",
+      "properties": {
+        "aux_id": "huchukato/ComfyUI-RIFE-TensorRT-Auto",
+        "ver": "51d88c0c0db49308dd3ade9edd4a5c1bcdf4ec72",
+        "Node name for S&R": "AutoLoadRifeTensorrtModel"
+      },
+      "widgets_values": [
+        "rife49_ensemble_True_scale_1_sim",
+        "fp16",
+        "large",
+        1
+      ],
+      "widgets_values_named": {
+        "model": "rife49_ensemble_True_scale_1_sim",
+        "precision": "fp16",
+        "resolution_profile": "large",
+        "batch_size": 1
+      },
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 12,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        5350,
+        1280
+      ],
+      "size": [
+        1155.5330597730813,
+        996.8760341560464
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 6
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 7
+        },
+        {
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "title": "OPTIONAL OUTPUT — 48 FPS · HIGH",
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "4ee72c065db22c9d96c2427954dc69e7b908444b",
+        "Node name for S&R": "VHS_VideoCombine",
+        "aux_id": "Kosinkadink/ComfyUI-VideoHelperSuite"
+      },
+      "widgets_values": {
+        "frame_rate": 48,
+        "loop_count": 0,
+        "filename_prefix": "video/MiniMax_H3_R2VA_HIGH_48FPS",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 16,
+        "save_metadata": false,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "MiniMax_H3_R2VA_48FPS_00026-audio.mp4",
+            "subfolder": "video",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 48,
+            "workflow": "MiniMax_H3_R2VA_48FPS_00026.png",
+            "fullpath": "/workspace/ComfyUI/output/video/MiniMax_H3_R2VA_48FPS_00026-audio.mp4"
+          }
+        }
+      },
+      "widgets_values_named": {
+        "frame_rate": 48,
+        "loop_count": 0,
+        "filename_prefix": "video/MiniMax_H3_R2VA_HIGH_48FPS",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 16,
+        "save_metadata": false,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "MiniMax_H3_R2VA_48FPS_00026-audio.mp4",
+            "subfolder": "video",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 48,
+            "workflow": "MiniMax_H3_R2VA_48FPS_00026.png",
+            "fullpath": "/workspace/ComfyUI/output/video/MiniMax_H3_R2VA_48FPS_00026-audio.mp4"
+          }
+        }
+      },
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 14,
+      "type": "SamplerCustomAdvanced",
+      "pos": [
+        4700,
+        850
+      ],
+      "size": [
+        230,
+        140
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "noise",
+          "type": "NOISE",
+          "link": 8
+        },
+        {
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 9
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 10
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 11
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            18,
+            20
+          ]
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": null
+        }
+      ],
+      "title": "H3 SAMPLER",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "SamplerCustomAdvanced"
+      }
+    },
+    {
+      "id": 15,
+      "type": "BasicGuider",
+      "pos": [
+        4300,
+        800
+      ],
+      "size": [
+        360,
+        60
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 13
+        },
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 14
+        }
+      ],
+      "outputs": [
+        {
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "links": [
+            9
+          ]
+        }
+      ],
+      "title": "H3 GUIDER",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "BasicGuider"
+      }
+    },
+    {
+      "id": 17,
+      "type": "RandomNoise",
+      "pos": [
+        4300,
+        650
+      ],
+      "size": [
+        360,
+        90
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            8
+          ]
+        }
+      ],
+      "title": "SEED",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "RandomNoise"
+      },
+      "widgets_values": [
+        508432863017922,
+        "randomize"
+      ],
+      "widgets_values_named": {
+        "noise_seed": 508432863017922,
+        "control_after_generate": "randomize"
+      }
+    },
+    {
+      "id": 20,
+      "type": "CreateVideo",
+      "pos": [
+        5250,
+        700
+      ],
+      "size": [
+        278.378515625,
+        126
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 16
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "title": "CREATE NATIVE H3 VIDEO + AUDIO",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "CreateVideo"
+      },
+      "widgets_values": [
+        24,
+        8,
+        "sRGB"
+      ],
+      "widgets_values_named": {
+        "fps": 24,
+        "bit_depth": 8,
+        "color_space": "sRGB"
+      }
+    },
+    {
+      "id": 21,
+      "type": "VAEDecode",
+      "pos": [
+        5000,
+        700
+      ],
+      "size": [
+        230,
+        60
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 18
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 19
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2,
+            4,
+            16
+          ]
+        }
+      ],
+      "title": "H3 VIDEO DECODE",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 22,
+      "type": "VAEDecodeAudio",
+      "pos": [
+        5000,
+        800
+      ],
+      "size": [
+        230,
+        60
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 20
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 21
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            7,
+            17,
+            37
+          ]
+        }
+      ],
+      "title": "H3 AUDIO DECODE",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "VAEDecodeAudio"
+      }
+    },
+    {
+      "id": 23,
+      "type": "UNETLoader",
+      "pos": [
+        3050,
+        720
+      ],
+      "size": [
+        640,
+        90
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            30
+          ]
+        }
+      ],
+      "title": "H3 REF2VA MODEL",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "UNETLoader",
+        "models": [
+          {
+            "name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+            "directory": "diffusion_models"
+          }
+        ]
+      },
+      "widgets_values": [
+        "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "default"
+      ],
+      "widgets_values_named": {
+        "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "weight_dtype": "default"
+      }
+    },
+    {
+      "id": 27,
+      "type": "Power Lora Loader (rgthree)",
+      "pos": [
+        3050,
+        1260
+      ],
+      "size": [
+        340.519921875,
+        118
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "model",
+          "type": "MODEL",
+          "link": 30
+        },
+        {
+          "dir": 3,
+          "name": "clip",
+          "type": "CLIP",
+          "link": 31
+        }
+      ],
+      "outputs": [
+        {
+          "dir": 4,
+          "name": "MODEL",
+          "shape": 3,
+          "type": "MODEL",
+          "links": [
+            32
+          ]
+        },
+        {
+          "dir": 4,
+          "name": "CLIP",
+          "shape": 3,
+          "type": "CLIP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "6b76ee6f2c5a007710b5a16f97c94330d6ecc871",
+        "Show Strengths": "Single Strength",
+        "Match": "",
+        "aux_id": "rgthree/rgthree-comfy"
+      },
+      "widgets_values": [
+        {},
+        {
+          "type": "PowerLoraLoaderHeaderWidget"
+        },
+        {},
+        ""
+      ],
+      "widgets_values_named": {
+        "divider": {},
+        "PowerLoraLoaderHeaderWidget": {
+          "type": "PowerLoraLoaderHeaderWidget"
+        },
+        "➕ Add Lora": ""
+      },
+      "title": "H3 USER LoRAs — CIVITAI / MANUAL · ADD / STACK HERE"
+    },
+    {
+      "id": 28,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        3050,
+        1450
+      ],
+      "size": [
+        470,
+        105
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 32
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            13,
+            33
+          ]
+        }
+      ],
+      "title": "REF2V TURBO LoRA · 0.85 DEFAULT · Ctrl+B TO BYPASS",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0",
+        "Node name for S&R": "LoraLoaderModelOnly",
+        "models": [
+          {
+            "name": "minimax_h3_ref2v_turbo_4step_v0.1_comfyui_bf16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/loras/minimax_h3_ref2v_turbo_4step_v0.1_comfyui_bf16.safetensors",
+            "directory": "loras"
+          }
+        ]
+      },
+      "widgets_values": [
+        "minimax_h3_ref2v_turbo_4step_v0.1_comfyui_bf16.safetensors",
+        0.85
+      ],
+      "widgets_values_named": {
+        "lora_name": "minimax_h3_ref2v_turbo_4step_v0.1_comfyui_bf16.safetensors",
+        "strength_model": 0.85
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 29,
+      "type": "KSamplerSelect",
+      "pos": [
+        4300,
+        920
+      ],
+      "size": [
+        370,
+        70
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            10
+          ]
+        }
+      ],
+      "title": "SAMPLER",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0",
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "seeds_2"
+      ],
+      "widgets_values_named": {
+        "sampler_name": "seeds_2"
+      }
+    },
+    {
+      "id": 30,
+      "type": "BetaSamplingScheduler",
+      "pos": [
+        4300,
+        1040
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 33
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            34
+          ]
+        }
+      ],
+      "title": "TURBO SCHEDULER — 4 STEP",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0",
+        "Node name for S&R": "BetaSamplingScheduler"
+      },
+      "widgets_values": [
+        4,
+        0.6,
+        0.6
+      ],
+      "widgets_values_named": {
+        "steps": 4,
+        "alpha": 0.6,
+        "beta": 0.6
+      }
+    },
+    {
+      "id": 31,
+      "type": "ExtendIntermediateSigmas",
+      "pos": [
+        4300,
+        1180
+      ],
+      "size": [
+        290,
+        130
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 34
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            11
+          ]
+        }
+      ],
+      "title": "EXTEND TURBO SIGMAS",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0",
+        "Node name for S&R": "ExtendIntermediateSigmas"
+      },
+      "widgets_values": [
+        2,
+        0.8,
+        0,
+        "linear"
+      ],
+      "widgets_values_named": {
+        "steps": 2,
+        "start_at_sigma": 0.8,
+        "end_at_sigma": 0,
+        "spacing": "linear"
+      }
+    },
+    {
+      "id": 32,
+      "type": "Display Any (rgthree)",
+      "pos": [
+        3050,
+        1740
+      ],
+      "size": [
+        680,
+        420
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "source",
+          "type": "*",
+          "link": 35
+        }
+      ],
+      "outputs": [],
+      "title": "GENERATED H3 PROMPT (or passthrough when provider=none)",
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "6b76ee6f2c5a007710b5a16f97c94330d6ecc871",
+        "Node name for S&R": "Display Any (rgthree)",
+        "aux_id": "rgthree/rgthree-comfy"
+      },
+      "widgets_values": [
+        "subject_definitions:\n<Subject 1> is the girl from <Picture 1>, <Picture 2>, <Picture 3>, <Picture 4>, <Picture 5>, and <Picture 6>.  \n- <Picture 1>, <Picture 2>, and <Picture 3> strictly control her face, facial features, expression, eye shape, and hair.  \n- <Picture 4>, <Picture 5>, and <Picture 6> strictly control her body proportions, skin tone, and clothing.  \n- She wears the exact patterned blue bikini bottoms and black bikini top shown in the final three pictures.  \n- <Picture 6> provides additional frontside body reference.  \nAll identity details must remain fully consistent with these six images at every moment.  \n\n<Video 1> is the source video (the car handjob scene from the screenshot).  \nUse <Video 1> for motion, hand movements, pacing, body posture, head position, camera framing, camera movement, lighting, color grading, car interior setting, and overall visual style.  \nDo not keep the original woman’s face, body, hair, or identity from <Video 1>. Perform a complete identity replacement with <Subject 1>.\n\nsummary:\n[reference generation + motion transfer] 10-second continuous video. Fully replace the woman in the source car handjob video (<Video 1>) with <Subject 1> while copying the motion, hand actions, head movement, camera work, lighting, and car setting of <Video 1> as closely as possible. She moans “do you like that? do you like that?” and laughs while stroking.\n\nretention_analysis:\n<Subject 1>: fully_preserved from all six pictures.  \nFace, eyes, hair, and expression locked to <Picture 1>, <Picture 2>, and <Picture 3>.  \nBody shape, proportions, skin, and clothing locked to <Picture 4>, <Picture 5>, and <Picture 6>.  \nExact black bikini top and patterned blue bikini bottoms remain on the entire time.  \n\n<Video 1>: partially_preserved.  \nFully transfer and copy: handjob motion, hand positions, stroking rhythm, head tilt, body posture, timing, camera angle, lighting, color grade, car interior, and overall style.  \nCompletely discard: original woman’s face, body, hair, and identity.\n\ndetailed_description:\nLive-action, realistic, continuous single shot lasting exactly 10 seconds with no cuts.  \n\nThe entire scene, camera work, lighting, color grading, car interior, and pacing are copied as closely as possible from <Video 1>.  \nThe only major change is a full identity replacement: the woman performing the handjob is now <Subject 1>.  \n\n<Subject 1> appears with the exact face from the first three reference pictures and the exact body and clothing from the last three reference pictures.  \nShe wears the black bikini top and patterned blue bikini bottoms throughout.  \n\nShe sits inside the car and performs the handjob with the same hand positions, grip, stroke length, speed, and rhythm shown in <Video 1>.  \nHer head is tilted back and slightly to the side, mouth open, looking upward.  \n\nWhile stroking she moans the words “do you like that? do you like that?” in a breathy, teasing voice, then laughs.  \nHer facial expression stays aroused and playful, matching the energy of the source while locked to the face references.  \n\nCamera stays in the same low handheld angle looking upward inside the car.  \nTrees and daylight visible through the windows match the source.  \nNo other people appear.  \nNo clothing is removed or altered.  \nIdentity of <Subject 1> never drifts.\n\noverall_soundscape:  \nMatch the ambient car interior sound, wet skin sounds, and hand movement sounds from <Video 1>.  \nClear female voice saying “do you like that? do you like that?” followed by natural laughter and soft moans.  \nKeep the same volume balance and timing.\n\nnon_diegetic_music:  \nNone."
+      ],
+      "widgets_values_named": {
+        "output": "subject_definitions:\n<Subject 1> is the girl from <Picture 1>, <Picture 2>, <Picture 3>, <Picture 4>, <Picture 5>, and <Picture 6>.  \n- <Picture 1>, <Picture 2>, and <Picture 3> strictly control her face, facial features, expression, eye shape, and hair.  \n- <Picture 4>, <Picture 5>, and <Picture 6> strictly control her body proportions, skin tone, and clothing.  \n- She wears the exact patterned blue bikini bottoms and black bikini top shown in the final three pictures.  \n- <Picture 6> provides additional frontside body reference.  \nAll identity details must remain fully consistent with these six images at every moment.  \n\n<Video 1> is the source video (the car handjob scene from the screenshot).  \nUse <Video 1> for motion, hand movements, pacing, body posture, head position, camera framing, camera movement, lighting, color grading, car interior setting, and overall visual style.  \nDo not keep the original woman’s face, body, hair, or identity from <Video 1>. Perform a complete identity replacement with <Subject 1>.\n\nsummary:\n[reference generation + motion transfer] 10-second continuous video. Fully replace the woman in the source car handjob video (<Video 1>) with <Subject 1> while copying the motion, hand actions, head movement, camera work, lighting, and car setting of <Video 1> as closely as possible. She moans “do you like that? do you like that?” and laughs while stroking.\n\nretention_analysis:\n<Subject 1>: fully_preserved from all six pictures.  \nFace, eyes, hair, and expression locked to <Picture 1>, <Picture 2>, and <Picture 3>.  \nBody shape, proportions, skin, and clothing locked to <Picture 4>, <Picture 5>, and <Picture 6>.  \nExact black bikini top and patterned blue bikini bottoms remain on the entire time.  \n\n<Video 1>: partially_preserved.  \nFully transfer and copy: handjob motion, hand positions, stroking rhythm, head tilt, body posture, timing, camera angle, lighting, color grade, car interior, and overall style.  \nCompletely discard: original woman’s face, body, hair, and identity.\n\ndetailed_description:\nLive-action, realistic, continuous single shot lasting exactly 10 seconds with no cuts.  \n\nThe entire scene, camera work, lighting, color grading, car interior, and pacing are copied as closely as possible from <Video 1>.  \nThe only major change is a full identity replacement: the woman performing the handjob is now <Subject 1>.  \n\n<Subject 1> appears with the exact face from the first three reference pictures and the exact body and clothing from the last three reference pictures.  \nShe wears the black bikini top and patterned blue bikini bottoms throughout.  \n\nShe sits inside the car and performs the handjob with the same hand positions, grip, stroke length, speed, and rhythm shown in <Video 1>.  \nHer head is tilted back and slightly to the side, mouth open, looking upward.  \n\nWhile stroking she moans the words “do you like that? do you like that?” in a breathy, teasing voice, then laughs.  \nHer facial expression stays aroused and playful, matching the energy of the source while locked to the face references.  \n\nCamera stays in the same low handheld angle looking upward inside the car.  \nTrees and daylight visible through the windows match the source.  \nNo other people appear.  \nNo clothing is removed or altered.  \nIdentity of <Subject 1> never drifts.\n\noverall_soundscape:  \nMatch the ambient car interior sound, wet skin sounds, and hand movement sounds from <Video 1>.  \nClear female voice saying “do you like that? do you like that?” followed by natural laughter and soft moans.  \nKeep the same volume balance and timing.\n\nnon_diegetic_music:  \nNone."
+      }
+    },
+    {
+      "id": 33,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        5350,
+        1680
+      ],
+      "size": [
+        1155.5330597730813,
+        996.8760341560464
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 36
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 37
+        },
+        {
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "title": "OPTIONAL OUTPUT — UPSCALED 24 FPS · HIGH",
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "4ee72c065db22c9d96c2427954dc69e7b908444b",
+        "Node name for S&R": "VHS_VideoCombine",
+        "aux_id": "Kosinkadink/ComfyUI-VideoHelperSuite"
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "video/MiniMax_H3_R2VA_HIGH_UPSCALED_24FPS",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 16,
+        "save_metadata": false,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "MiniMax_H3_R2VA_UPSCALED_24FPS_00026-audio.mp4",
+            "subfolder": "video",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 24,
+            "workflow": "MiniMax_H3_R2VA_UPSCALED_24FPS_00026.png",
+            "fullpath": "/workspace/ComfyUI/output/video/MiniMax_H3_R2VA_UPSCALED_24FPS_00026-audio.mp4"
+          }
+        }
+      },
+      "widgets_values_named": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "video/MiniMax_H3_R2VA_HIGH_UPSCALED_24FPS",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 16,
+        "save_metadata": false,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "MiniMax_H3_R2VA_UPSCALED_24FPS_00026-audio.mp4",
+            "subfolder": "video",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 24,
+            "workflow": "MiniMax_H3_R2VA_UPSCALED_24FPS_00026.png",
+            "fullpath": "/workspace/ComfyUI/output/video/MiniMax_H3_R2VA_UPSCALED_24FPS_00026-audio.mp4"
+          }
+        }
+      },
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 34,
+      "type": "MarkdownNote",
+      "pos": [
+        650,
+        650
+      ],
+      "size": [
+        1320,
+        620
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "START HERE — H3 R2VA HIGH",
+      "properties": {},
+      "widgets_values": [
+        "# H3 R2VA — HIGH PRESET\n\n- Resolution: **1344×768**\n- Ref2V Turbo: **4 steps**\n- Duration control remains live (5s≈124, 10s≈243, 15s≈362)\n- Native 24 FPS output is the primary output\n- RIFE and TensorRT upscaling are optional\n- Upscaler: **RealESRGAN_x4 → 2x**, bypassed by default\n- Reference outputs remain wired into H3\n\nUse Draft for fast iteration, Mid for balanced generation, and High for the current full-quality preset."
+      ],
+      "widgets_values_named": {
+        "text": "# H3 R2VA — HIGH PRESET\n\n- Resolution: **1344×768**\n- Ref2V Turbo: **4 steps**\n- Duration control remains live (5s≈124, 10s≈243, 15s≈362)\n- Native 24 FPS output is the primary output\n- RIFE and TensorRT upscaling are optional\n- Upscaler: **RealESRGAN_x4 → 2x**, bypassed by default\n- Reference outputs remain wired into H3\n\nUse Draft for fast iteration, Mid for balanced generation, and High for the current full-quality preset."
+      },
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 7,
+      "type": "LoadUpscalerTensorrtModel",
+      "pos": [
+        5000,
+        1600
+      ],
+      "size": [
+        295.4078125,
+        82
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "upscaler_trt_model",
+          "type": "UPSCALER_TRT_MODEL",
+          "links": [
+            3
+          ]
+        }
+      ],
+      "title": "OPTIONAL — UPSCALER MODEL · RealESRGAN_x4 (safe default)",
+      "properties": {
+        "aux_id": "huchukato/ComfyUI-Upscaler-TensorRT-Auto",
+        "ver": "6b8951d7413b41d9639be91888ef65b63827b930",
+        "Node name for S&R": "LoadUpscalerTensorrtModel"
+      },
+      "widgets_values": [
+        "RealESRGAN_x4",
+        "fp16"
+      ],
+      "widgets_values_named": {
+        "model": "RealESRGAN_x4",
+        "precision": "fp16"
+      },
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 8,
+      "type": "UpscalerTensorrt",
+      "pos": [
+        5000,
+        1730
+      ],
+      "size": [
+        294.81271348921337,
+        76
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 2
+        },
+        {
+          "name": "upscaler_trt_model",
+          "type": "UPSCALER_TRT_MODEL",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "upscaled_images",
+          "type": "IMAGE",
+          "links": [
+            36
+          ]
+        }
+      ],
+      "title": "OPTIONAL — UPSCALE · 2x (BYPASSED BY DEFAULT · enable only after native succeeds)",
+      "properties": {
+        "aux_id": "huchukato/ComfyUI-Upscaler-TensorRT-Auto",
+        "ver": "6b8951d7413b41d9639be91888ef65b63827b930",
+        "Node name for S&R": "UpscalerTensorrt"
+      },
+      "widgets_values": [
+        "2x",
+        "2",
+        2048
+      ],
+      "widgets_values_named": {
+        "resize_to": "2x",
+        "resize_width": "2",
+        "resize_height": 2048
+      },
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 13,
+      "type": "VAELoader",
+      "pos": [
+        3050,
+        1010
+      ],
+      "size": [
+        640,
+        70
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            19,
+            23
+          ]
+        }
+      ],
+      "title": "H3 VIDEO VAE",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "VAELoader",
+        "models": [
+          {
+            "name": "minimax_h3_video_vae_fp16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors",
+            "directory": "vae"
+          }
+        ]
+      },
+      "widgets_values": [
+        "minimax_h3_video_vae_fp16.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "minimax_h3_video_vae_fp16.safetensors"
+      }
+    },
+    {
+      "id": 16,
+      "type": "CLIPLoader",
+      "pos": [
+        3050,
+        850
+      ],
+      "size": [
+        640,
+        120
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            22,
+            31
+          ]
+        }
+      ],
+      "title": "H3 QWEN3-VL TEXT ENCODER",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "CLIPLoader",
+        "models": [
+          {
+            "name": "qwen3vl_32b_minimax_h3_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_int8_convrot.safetensors",
+            "directory": "text_encoders"
+          }
+        ]
+      },
+      "widgets_values": [
+        "qwen3vl_32b_minimax_h3_int8_convrot.safetensors",
+        "minimax",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "qwen3vl_32b_minimax_h3_int8_convrot.safetensors",
+        "type": "minimax",
+        "device": "default"
+      }
+    },
+    {
+      "id": 24,
+      "type": "VAELoader",
+      "pos": [
+        3050,
+        1120
+      ],
+      "size": [
+        650,
+        70
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            21,
+            24
+          ]
+        }
+      ],
+      "title": "H3 AUDIO VAE",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "VAELoader",
+        "models": [
+          {
+            "name": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors",
+            "directory": "vae"
+          }
+        ]
+      },
+      "widgets_values": [
+        "minimax_h3_audio_vae_fp32.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+      }
+    },
+    {
+      "id": 19,
+      "type": "PrimitiveFloat",
+      "pos": [
+        2100,
+        1020
+      ],
+      "size": [
+        270,
+        70
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            15,
+            50
+          ]
+        }
+      ],
+      "title": "DURATION (SECONDS) — DEFAULT 10s",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "PrimitiveFloat"
+      },
+      "widgets_values": [
+        10.0
+      ],
+      "widgets_values_named": {
+        "value": 10.0
+      }
+    },
+    {
+      "id": 18,
+      "type": "ComfyMathExpression",
+      "pos": [
+        2400,
+        980
+      ],
+      "size": [
+        360,
+        160
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "a",
+          "name": "values.a",
+          "type": "FLOAT,INT,BOOLEAN",
+          "link": 15
+        },
+        {
+          "label": "b",
+          "name": "values.b",
+          "shape": 7,
+          "type": "FLOAT,INT,BOOLEAN",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            53
+          ]
+        },
+        {
+          "name": "BOOL",
+          "type": "BOOLEAN",
+          "links": null
+        }
+      ],
+      "title": "H3 FRAME LENGTH (AUTO) — 5s≈124 · 10s≈243 · 15s≈362",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "ComfyMathExpression"
+      },
+      "widgets_values": [
+        "max(5, round(a * 24)) + (5 - (max(5, round(a * 24)) % 17)) % 17"
+      ],
+      "widgets_values_named": {
+        "expression": "max(5, round(a * 24)) + (5 - (max(5, round(a * 24)) % 17)) % 17"
+      }
+    },
+    {
+      "id": 2,
+      "type": "SaveVideo",
+      "pos": [
+        5580,
+        700
+      ],
+      "size": [
+        1146.9778644557782,
+        106
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": null
+        }
+      ],
+      "title": "NATIVE H3 — 24 FPS (VIDEO + AUDIO) · HIGH",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "SaveVideo"
+      },
+      "widgets_values": [
+        "video/MiniMax_H3_R2VA_HIGH_NATIVE_24FPS",
+        "auto",
+        "auto",
+        "auto"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "video/MiniMax_H3_R2VA_HIGH_NATIVE_24FPS",
+        "format": "auto",
+        "format.codec": "auto",
+        "codec": "auto"
+      },
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 26,
+      "type": "MiniMaxH3ReferencePack",
+      "pos": [
+        650,
+        1320
+      ],
+      "size": [
+        1340,
+        800
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "shape": 7,
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 48
+        },
+        {
+          "name": "height",
+          "shape": 7,
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 49
+        },
+        {
+          "name": "length_seconds",
+          "shape": 7,
+          "type": "FLOAT",
+          "widget": {
+            "name": "length_seconds"
+          },
+          "link": 50
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image_1",
+          "type": "IMAGE",
+          "links": [
+            54
+          ]
+        },
+        {
+          "name": "image_2",
+          "type": "IMAGE",
+          "links": [
+            55
+          ]
+        },
+        {
+          "name": "image_3",
+          "type": "IMAGE",
+          "links": [
+            56
+          ]
+        },
+        {
+          "name": "image_4",
+          "type": "IMAGE",
+          "links": [
+            57
+          ]
+        },
+        {
+          "name": "image_5",
+          "type": "IMAGE",
+          "links": [
+            58
+          ]
+        },
+        {
+          "name": "image_6",
+          "type": "IMAGE",
+          "links": [
+            59
+          ]
+        },
+        {
+          "name": "image_7",
+          "type": "IMAGE",
+          "links": [
+            60
+          ]
+        },
+        {
+          "name": "image_8",
+          "type": "IMAGE",
+          "links": [
+            61
+          ]
+        },
+        {
+          "name": "image_9",
+          "type": "IMAGE",
+          "links": [
+            62
+          ]
+        },
+        {
+          "name": "video_1",
+          "type": "IMAGE",
+          "links": [
+            63
+          ]
+        },
+        {
+          "name": "video_2",
+          "type": "IMAGE",
+          "links": [
+            64
+          ]
+        },
+        {
+          "name": "video_3",
+          "type": "IMAGE",
+          "links": [
+            65
+          ]
+        },
+        {
+          "name": "video_audio_1",
+          "type": "AUDIO",
+          "links": [
+            66
+          ]
+        },
+        {
+          "name": "video_audio_2",
+          "type": "AUDIO",
+          "links": [
+            67
+          ]
+        },
+        {
+          "name": "video_audio_3",
+          "type": "AUDIO",
+          "links": [
+            68
+          ]
+        },
+        {
+          "name": "audio_1",
+          "type": "AUDIO",
+          "links": [
+            69
+          ]
+        },
+        {
+          "name": "audio_2",
+          "type": "AUDIO",
+          "links": [
+            70
+          ]
+        },
+        {
+          "name": "audio_3",
+          "type": "AUDIO",
+          "links": [
+            71
+          ]
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            35,
+            72
+          ]
+        },
+        {
+          "name": "debug",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "title": "MAIN H3 R2VA PROMPT + REFERENCES — HIGH PRESET · 1–9 IMAGES / 0–3 VIDEO / AUDIO",
+      "properties": {
+        "cnr_id": "comfyui-minimaxrefpack",
+        "ver": "0.3.5",
+        "Node name for S&R": "MiniMaxH3ReferencePack",
+        "aux_id": "Hearmeman24/ComfyUI-MiniMaxRefPack"
+      },
+      "widgets_values": [
+        "subject_definitions:\n<Subject 1> is the girl from <Picture 1>, <Picture 2>, <Pisubject_definitions:\n<Subject 1> is the adult woman (18 years old) from <Picture 1>, <Picture 2>, <Picture 3>, <Picture 4>, <Picture 5>, and <Picture 6>.  \n\nCRITICAL IDENTITY RULES (highest priority):\n- Face, eyes, eyebrows, nose, mouth, expression style, and hair must come ONLY from <Picture 1>, <Picture 2>, and <Picture 3>.  \n- Completely discard and never use the original woman’s face or hair from <Video 1>.  \n- Body proportions, skin tone, and overall build must come from <Picture 4>, <Picture 5>, and <Picture 6>.  \n- She must wear the EXACT black bikini top and patterned blue bikini bottoms shown in <Picture 4>, <Picture 5>, and <Picture 6>.  \n- No other clothing is allowed. The original clothing from <Video 1> must be fully replaced.\n\n<Video 1> is the source car handjob video.  \nUse it only for: hand movements, stroking rhythm, head tilt, body posture, camera angle, lighting, car interior, and overall motion.  \nDo NOT keep the original woman’s face, hair, body, or clothing.\n\nsummary:\n[reference generation + motion transfer] 10-second continuous video. Complete identity and clothing replacement of the woman in <Video 1> with <Subject 1>. She must have the exact face from the first three pictures and must wear the exact black bikini top + patterned blue bikini bottoms from the last three pictures while performing the same handjob.\n\nretention_analysis:\n<Subject 1>: fully_preserved and forced.  \nFace = strictly <Picture 1>, <Picture 2>, <Picture 3>.  \nBody + clothing = strictly <Picture 4>, <Picture 5>, <Picture 6> (black bikini top and patterned blue bikini bottoms only).  \nOriginal woman from <Video 1> is completely removed.\n\n<Video 1>: motion and camera only. Face, hair, body, and clothing are discarded.\n\ndetailed_description:\nLive-action, realistic, continuous single shot lasting exactly 10 seconds with no cuts.  \n\nHighest priority: full face and clothing replacement.  \nThe woman in the car is now <Subject 1> with the exact face from <Picture 1>, <Picture 2>, and <Picture 3>.  \nShe is wearing only the black bikini top and patterned blue bikini bottoms from <Picture 4>, <Picture 5>, and <Picture 6>.  \nThe original woman’s face, hair, and clothing from <Video 1> must not appear at any point.\n\nShe sits inside the car and performs the handjob using the same hand positions, grip, stroke speed, and rhythm as <Video 1>.  \nHer head is tilted back and slightly to the side, mouth open, looking upward.  \n\nWhile stroking she moans “do you like that? do you like that?” then laughs.  \nFacial expression stays playful and aroused but is locked to the face references.  \n\nCamera remains in the same low handheld angle looking upward inside the car.  \nLighting, color, and car interior match <Video 1>.  \nNo other people.  \nIdentity and clothing of <Subject 1> never drift.\n\noverall_soundscape:  \nCar interior ambience and wet stroking sounds from <Video 1>.  \nClear female voice saying “do you like that? do you like that?” followed by natural laughter and soft moans.\n\nnon_diegetic_music:  \nNone.cture 3>, <Picture 4>, <Picture 5>, and <Picture 6>.  \n- <Picture 1>, <Picture 2>, and <Picture 3> strictly control her face, facial features, expression, eye shape, and hair.  \n- <Picture 4>, <Picture 5>, and <Picture 6> strictly control her body proportions, skin tone, and clothing.  \n- She wears the exact patterned blue bikini bottoms and black bikini top shown in the final three pictures.  \n- <Picture 6> provides additional frontside body reference.  \nAll identity details must remain fully consistent with these six images at every moment.  \n\n<Video 1> is the source video (the car handjob scene from the screenshot).  \nUse <Video 1> for motion, hand movements, pacing, body posture, head position, camera framing, camera movement, lighting, color grading, car interior setting, and overall visual style.  \nDo not keep the original woman’s face, body, hair, or identity from <Video 1>. Perform a complete identity replacement with <Subject 1>.\n\nsummary:\n[reference generation + motion transfer] 10-second continuous video. Fully replace the woman in the source car handjob video (<Video 1>) with <Subject 1> while copying the motion, hand actions, head movement, camera work, lighting, and car setting of <Video 1> as closely as possible. She moans “do you like that? do you like that?” and laughs while stroking.\n\nretention_analysis:\n<Subject 1>: fully_preserved from all six pictures.  \nFace, eyes, hair, and expression locked to <Picture 1>, <Picture 2>, and <Picture 3>.  \nBody shape, proportions, skin, and clothing locked to <Picture 4>, <Picture 5>, and <Picture 6>.  \nExact black bikini top and patterned blue bikini bottoms remain on the entire time.  \n\n<Video 1>: partially_preserved.  \nFully transfer and copy: handjob motion, hand positions, stroking rhythm, head tilt, body posture, timing, camera angle, lighting, color grade, car interior, and overall style.  \nCompletely discard: original woman’s face, body, hair, and identity.\n\ndetailed_description:\nLive-action, realistic, continuous single shot lasting exactly 10 seconds with no cuts.  \n\nThe entire scene, camera work, lighting, color grading, car interior, and pacing are copied as closely as possible from <Video 1>.  \nThe only major change is a full identity replacement: the woman performing the handjob is now <Subject 1>.  \n\n<Subject 1> appears with the exact face from the first three reference pictures and the exact body and clothing from the last three reference pictures.  \nShe wears the black bikini top and patterned blue bikini bottoms throughout.  \n\nShe sits inside the car and performs the handjob with the same hand positions, grip, stroke length, speed, and rhythm shown in <Video 1>.  \nHer head is tilted back and slightly to the side, mouth open, looking upward.  \n\nWhile stroking she moans the words “do you like that? do you like that?” in a breathy, teasing voice, then laughs.  \nHer facial expression stays aroused and playful, matching the energy of the source while locked to the face references.  \n\nCamera stays in the same low handheld angle looking upward inside the car.  \nTrees and daylight visible through the windows match the source.  \nNo other people appear.  \nNo clothing is removed or altered.  \nIdentity of <Subject 1> never drifts.\n\noverall_soundscape:  \nMatch the ambient car interior sound, wet skin sounds, and hand movement sounds from <Video 1>.  \nClear female voice saying “do you like that? do you like that?” followed by natural laughter and soft moans.  \nKeep the same volume balance and timing.\n\nnon_diegetic_music:  \nNone.",
+        "{\"references\":[{\"kind\":\"image\",\"file\":\"dd (6496)_0.jpg\"},{\"kind\":\"image\",\"file\":\"dd (6507).jpg\"},{\"kind\":\"image\",\"file\":\"dd (6462).jpg\"},{\"kind\":\"image\",\"file\":\"ddapril2024 (4).webp\"},{\"kind\":\"image\",\"file\":\"videoframe_0 (23).png\"},{\"kind\":\"image\",\"file\":\"dd (9050).jpg\"},{\"kind\":\"video\",\"file\":\"m2-res_1280p.mp4\",\"use_soundtrack\":false},{\"kind\":\"audio\",\"file\":\"dddd.wav\"}]}",
+        "",
+        "none",
+        "",
+        "google/gemini-3-flash-preview",
+        "none",
+        "",
+        "",
+        "auto",
+        1344,
+        768,
+        10,
+        2048,
+        ""
+      ],
+      "widgets_values_named": {
+        "direction": "subject_definitions:\n<Subject 1> is the girl from <Picture 1>, <Picture 2>, <Pisubject_definitions:\n<Subject 1> is the adult woman (18 years old) from <Picture 1>, <Picture 2>, <Picture 3>, <Picture 4>, <Picture 5>, and <Picture 6>.  \n\nCRITICAL IDENTITY RULES (highest priority):\n- Face, eyes, eyebrows, nose, mouth, expression style, and hair must come ONLY from <Picture 1>, <Picture 2>, and <Picture 3>.  \n- Completely discard and never use the original woman’s face or hair from <Video 1>.  \n- Body proportions, skin tone, and overall build must come from <Picture 4>, <Picture 5>, and <Picture 6>.  \n- She must wear the EXACT black bikini top and patterned blue bikini bottoms shown in <Picture 4>, <Picture 5>, and <Picture 6>.  \n- No other clothing is allowed. The original clothing from <Video 1> must be fully replaced.\n\n<Video 1> is the source car handjob video.  \nUse it only for: hand movements, stroking rhythm, head tilt, body posture, camera angle, lighting, car interior, and overall motion.  \nDo NOT keep the original woman’s face, hair, body, or clothing.\n\nsummary:\n[reference generation + motion transfer] 10-second continuous video. Complete identity and clothing replacement of the woman in <Video 1> with <Subject 1>. She must have the exact face from the first three pictures and must wear the exact black bikini top + patterned blue bikini bottoms from the last three pictures while performing the same handjob.\n\nretention_analysis:\n<Subject 1>: fully_preserved and forced.  \nFace = strictly <Picture 1>, <Picture 2>, <Picture 3>.  \nBody + clothing = strictly <Picture 4>, <Picture 5>, <Picture 6> (black bikini top and patterned blue bikini bottoms only).  \nOriginal woman from <Video 1> is completely removed.\n\n<Video 1>: motion and camera only. Face, hair, body, and clothing are discarded.\n\ndetailed_description:\nLive-action, realistic, continuous single shot lasting exactly 10 seconds with no cuts.  \n\nHighest priority: full face and clothing replacement.  \nThe woman in the car is now <Subject 1> with the exact face from <Picture 1>, <Picture 2>, and <Picture 3>.  \nShe is wearing only the black bikini top and patterned blue bikini bottoms from <Picture 4>, <Picture 5>, and <Picture 6>.  \nThe original woman’s face, hair, and clothing from <Video 1> must not appear at any point.\n\nShe sits inside the car and performs the handjob using the same hand positions, grip, stroke speed, and rhythm as <Video 1>.  \nHer head is tilted back and slightly to the side, mouth open, looking upward.  \n\nWhile stroking she moans “do you like that? do you like that?” then laughs.  \nFacial expression stays playful and aroused but is locked to the face references.  \n\nCamera remains in the same low handheld angle looking upward inside the car.  \nLighting, color, and car interior match <Video 1>.  \nNo other people.  \nIdentity and clothing of <Subject 1> never drift.\n\noverall_soundscape:  \nCar interior ambience and wet stroking sounds from <Video 1>.  \nClear female voice saying “do you like that? do you like that?” followed by natural laughter and soft moans.\n\nnon_diegetic_music:  \nNone.cture 3>, <Picture 4>, <Picture 5>, and <Picture 6>.  \n- <Picture 1>, <Picture 2>, and <Picture 3> strictly control her face, facial features, expression, eye shape, and hair.  \n- <Picture 4>, <Picture 5>, and <Picture 6> strictly control her body proportions, skin tone, and clothing.  \n- She wears the exact patterned blue bikini bottoms and black bikini top shown in the final three pictures.  \n- <Picture 6> provides additional frontside body reference.  \nAll identity details must remain fully consistent with these six images at every moment.  \n\n<Video 1> is the source video (the car handjob scene from the screenshot).  \nUse <Video 1> for motion, hand movements, pacing, body posture, head position, camera framing, camera movement, lighting, color grading, car interior setting, and overall visual style.  \nDo not keep the original woman’s face, body, hair, or identity from <Video 1>. Perform a complete identity replacement with <Subject 1>.\n\nsummary:\n[reference generation + motion transfer] 10-second continuous video. Fully replace the woman in the source car handjob video (<Video 1>) with <Subject 1> while copying the motion, hand actions, head movement, camera work, lighting, and car setting of <Video 1> as closely as possible. She moans “do you like that? do you like that?” and laughs while stroking.\n\nretention_analysis:\n<Subject 1>: fully_preserved from all six pictures.  \nFace, eyes, hair, and expression locked to <Picture 1>, <Picture 2>, and <Picture 3>.  \nBody shape, proportions, skin, and clothing locked to <Picture 4>, <Picture 5>, and <Picture 6>.  \nExact black bikini top and patterned blue bikini bottoms remain on the entire time.  \n\n<Video 1>: partially_preserved.  \nFully transfer and copy: handjob motion, hand positions, stroking rhythm, head tilt, body posture, timing, camera angle, lighting, color grade, car interior, and overall style.  \nCompletely discard: original woman’s face, body, hair, and identity.\n\ndetailed_description:\nLive-action, realistic, continuous single shot lasting exactly 10 seconds with no cuts.  \n\nThe entire scene, camera work, lighting, color grading, car interior, and pacing are copied as closely as possible from <Video 1>.  \nThe only major change is a full identity replacement: the woman performing the handjob is now <Subject 1>.  \n\n<Subject 1> appears with the exact face from the first three reference pictures and the exact body and clothing from the last three reference pictures.  \nShe wears the black bikini top and patterned blue bikini bottoms throughout.  \n\nShe sits inside the car and performs the handjob with the same hand positions, grip, stroke length, speed, and rhythm shown in <Video 1>.  \nHer head is tilted back and slightly to the side, mouth open, looking upward.  \n\nWhile stroking she moans the words “do you like that? do you like that?” in a breathy, teasing voice, then laughs.  \nHer facial expression stays aroused and playful, matching the energy of the source while locked to the face references.  \n\nCamera stays in the same low handheld angle looking upward inside the car.  \nTrees and daylight visible through the windows match the source.  \nNo other people appear.  \nNo clothing is removed or altered.  \nIdentity of <Subject 1> never drifts.\n\noverall_soundscape:  \nMatch the ambient car interior sound, wet skin sounds, and hand movement sounds from <Video 1>.  \nClear female voice saying “do you like that? do you like that?” followed by natural laughter and soft moans.  \nKeep the same volume balance and timing.\n\nnon_diegetic_music:  \nNone.",
+        "references_json": "{\"references\":[{\"kind\":\"image\",\"file\":\"dd (6496)_0.jpg\"},{\"kind\":\"image\",\"file\":\"dd (6507).jpg\"},{\"kind\":\"image\",\"file\":\"dd (6462).jpg\"},{\"kind\":\"image\",\"file\":\"ddapril2024 (4).webp\"},{\"kind\":\"image\",\"file\":\"videoframe_0 (23).png\"},{\"kind\":\"image\",\"file\":\"dd (9050).jpg\"},{\"kind\":\"video\",\"file\":\"m2-res_1280p.mp4\",\"use_soundtrack\":false},{\"kind\":\"audio\",\"file\":\"dddd.wav\"}]}",
+        "system_prompt": "",
+        "prompt_provider": "none",
+        "openrouter_api_key": "",
+        "openrouter_model": "google/gemini-3-flash-preview",
+        "reasoning_effort": "none",
+        "api_base": "",
+        "local_model_slug": "",
+        "job_type": "auto",
+        "width": 1280,
+        "height": 720,
+        "length_seconds": 5,
+        "max_reference_edge": 2048,
+        "mmrp_block": ""
+      },
+      "color": "#243640",
+      "bgcolor": "#35515f"
+    },
+    {
+      "id": 25,
+      "type": "MiniMaxH3ReferenceToVideo",
+      "pos": [
+        3750,
+        650
+      ],
+      "size": [
+        460,
+        820
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 22
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 23
+        },
+        {
+          "name": "audio_vae",
+          "type": "VAE",
+          "link": 24
+        },
+        {
+          "label": "ref_image_0",
+          "name": "ref_images.ref_image_0",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 54
+        },
+        {
+          "label": "ref_image_1",
+          "name": "ref_images.ref_image_1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 55
+        },
+        {
+          "label": "ref_image_2",
+          "name": "ref_images.ref_image_2",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 56
+        },
+        {
+          "label": "ref_image_3",
+          "name": "ref_images.ref_image_3",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 57
+        },
+        {
+          "label": "ref_image_4",
+          "name": "ref_images.ref_image_4",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 58
+        },
+        {
+          "label": "ref_image_5",
+          "name": "ref_images.ref_image_5",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 59
+        },
+        {
+          "label": "ref_image_6",
+          "name": "ref_images.ref_image_6",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 60
+        },
+        {
+          "label": "ref_image_7",
+          "name": "ref_images.ref_image_7",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 61
+        },
+        {
+          "label": "ref_image_8",
+          "name": "ref_images.ref_image_8",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 62
+        },
+        {
+          "label": "ref_video_0",
+          "name": "ref_videos.ref_video_0",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 63
+        },
+        {
+          "label": "ref_video_1",
+          "name": "ref_videos.ref_video_1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 64
+        },
+        {
+          "label": "ref_video_2",
+          "name": "ref_videos.ref_video_2",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 65
+        },
+        {
+          "label": "ref_video_audio_0",
+          "name": "ref_video_audios.ref_video_audio_0",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 66
+        },
+        {
+          "label": "ref_video_audio_1",
+          "name": "ref_video_audios.ref_video_audio_1",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 67
+        },
+        {
+          "label": "ref_video_audio_2",
+          "name": "ref_video_audios.ref_video_audio_2",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 68
+        },
+        {
+          "label": "ref_audio_0",
+          "name": "ref_audios.ref_audio_0",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 69
+        },
+        {
+          "label": "ref_audio_1",
+          "name": "ref_audios.ref_audio_1",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 70
+        },
+        {
+          "label": "ref_audio_2",
+          "name": "ref_audios.ref_audio_2",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 71
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 72
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 51
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 52
+        },
+        {
+          "name": "length",
+          "type": "INT",
+          "widget": {
+            "name": "length"
+          },
+          "link": 53
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            14
+          ]
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            12
+          ]
+        }
+      ],
+      "title": "MiniMax H3 R2VA — CORE · HIGH PRESET · ALL REFERENCES WIRED ONCE",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0",
+        "Node name for S&R": "MiniMaxH3ReferenceToVideo"
+      },
+      "widgets_values": [
+        "subject_definitions:\n<Subject 1> is the woman (18 years old) from <Picture 1>, <Picture 2>, <Picture 3>, <Picture 4>, <Picture 5>, and <Picture 6>.  \n- <Picture 1>, <Picture 2>, and <Picture 3> control her face, facial features, expression, and hair.  \n- <Picture 4>, <Picture 5>, and <Picture 6> control her body, proportions, skin, and clothing.  \n- She wears the exact patterned blue bikini bottoms and black bikini top shown in the final three pictures.  \n- <Picture 6> provides additional frontside body reference.  \nAll identity details must remain fully consistent across the six images.\n\nsummary:\n[reference generation] Continuous single-shot video in a new setting. The woman dances while wearing the patterned blue bikini bottoms and black bikini top from the references, with strong ass focus.\n\nretention_analysis:\n<Subject 1>: fully_preserved from all six pictures.  \nFace locked to the first three images.  \nBody and clothing locked to the last three images (patterned blue bikini bottoms + black bikini top).  \nNo clothing changes. No other people.\n\ndetailed_description:\nLive-action, realistic, continuous single shot with no cuts.  \nNew setting: A clean modern rooftop terrace at golden hour. Smooth concrete floor, low glass railing, soft city skyline in the distant background, warm directional sunlight with long gentle shadows.  \n\nCamera starts at a medium rear three-quarter angle and stays primarily behind and slightly to the side of <Subject 1>, keeping strong focus on her ass and hips throughout.  \n\n<Subject 1> dances in place with smooth, rhythmic hip movements and subtle body rolls. She wears the exact black bikini top and patterned blue bikini bottoms from the reference images. Her ass remains the clear visual center of the frame as she sways, shifts her weight, and moves her hips side to side and in small circles. Occasional natural turns give brief side views but the camera prioritizes the rear view. Facial features stay consistent with the first three reference images whenever her face becomes partially visible. Soft realistic skin texture, natural fabric movement on the bikini, and accurate body proportions from the last three images.  \n\nLighting is warm golden-hour sunlight with soft fill. No other people appear.\n\noverall_soundscape:  \nSoft rooftop ambience with light distant city noise and gentle wind. Quiet rhythmic fabric and skin movement sounds from dancing. Light natural breathing.\n\nnon_diegetic_music:  \nNone.",
+        1344,
+        768,
+        243,
+        "match"
+      ],
+      "widgets_values_named": {
+        "prompt": "subject_definitions:\n<Subject 1> is the woman (18 years old) from <Picture 1>, <Picture 2>, <Picture 3>, <Picture 4>, <Picture 5>, and <Picture 6>.  \n- <Picture 1>, <Picture 2>, and <Picture 3> control her face, facial features, expression, and hair.  \n- <Picture 4>, <Picture 5>, and <Picture 6> control her body, proportions, skin, and clothing.  \n- She wears the exact patterned blue bikini bottoms and black bikini top shown in the final three pictures.  \n- <Picture 6> provides additional frontside body reference.  \nAll identity details must remain fully consistent across the six images.\n\nsummary:\n[reference generation] Continuous single-shot video in a new setting. The woman dances while wearing the patterned blue bikini bottoms and black bikini top from the references, with strong ass focus.\n\nretention_analysis:\n<Subject 1>: fully_preserved from all six pictures.  \nFace locked to the first three images.  \nBody and clothing locked to the last three images (patterned blue bikini bottoms + black bikini top).  \nNo clothing changes. No other people.\n\ndetailed_description:\nLive-action, realistic, continuous single shot with no cuts.  \nNew setting: A clean modern rooftop terrace at golden hour. Smooth concrete floor, low glass railing, soft city skyline in the distant background, warm directional sunlight with long gentle shadows.  \n\nCamera starts at a medium rear three-quarter angle and stays primarily behind and slightly to the side of <Subject 1>, keeping strong focus on her ass and hips throughout.  \n\n<Subject 1> dances in place with smooth, rhythmic hip movements and subtle body rolls. She wears the exact black bikini top and patterned blue bikini bottoms from the reference images. Her ass remains the clear visual center of the frame as she sways, shifts her weight, and moves her hips side to side and in small circles. Occasional natural turns give brief side views but the camera prioritizes the rear view. Facial features stay consistent with the first three reference images whenever her face becomes partially visible. Soft realistic skin texture, natural fabric movement on the bikini, and accurate body proportions from the last three images.  \n\nLighting is warm golden-hour sunlight with soft fill. No other people appear.\n\noverall_soundscape:  \nSoft rooftop ambience with light distant city noise and gentle wind. Quiet rhythmic fabric and skin movement sounds from dancing. Light natural breathing.\n\nnon_diegetic_music:  \nNone.",
+        "width": 1344,
+        "height": 768,
+        "length": 243,
+        "ref_image_size": "match"
+      }
+    }
+  ],
+  "links": [
+    [
+      1,
+      20,
+      0,
+      2,
+      0,
+      "VIDEO"
+    ],
+    [
+      2,
+      21,
+      0,
+      8,
+      0,
+      "IMAGE"
+    ],
+    [
+      3,
+      7,
+      0,
+      8,
+      1,
+      "UPSCALER_TRT_MODEL"
+    ],
+    [
+      4,
+      21,
+      0,
+      10,
+      0,
+      "IMAGE"
+    ],
+    [
+      5,
+      11,
+      0,
+      10,
+      1,
+      "RIFE_TRT_MODEL"
+    ],
+    [
+      6,
+      10,
+      0,
+      12,
+      0,
+      "IMAGE"
+    ],
+    [
+      7,
+      22,
+      0,
+      12,
+      1,
+      "AUDIO"
+    ],
+    [
+      8,
+      17,
+      0,
+      14,
+      0,
+      "NOISE"
+    ],
+    [
+      9,
+      15,
+      0,
+      14,
+      1,
+      "GUIDER"
+    ],
+    [
+      10,
+      29,
+      0,
+      14,
+      2,
+      "SAMPLER"
+    ],
+    [
+      11,
+      31,
+      0,
+      14,
+      3,
+      "SIGMAS"
+    ],
+    [
+      12,
+      25,
+      1,
+      14,
+      4,
+      "LATENT"
+    ],
+    [
+      13,
+      28,
+      0,
+      15,
+      0,
+      "MODEL"
+    ],
+    [
+      14,
+      25,
+      0,
+      15,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      15,
+      19,
+      0,
+      18,
+      0,
+      "FLOAT"
+    ],
+    [
+      16,
+      21,
+      0,
+      20,
+      0,
+      "IMAGE"
+    ],
+    [
+      17,
+      22,
+      0,
+      20,
+      1,
+      "AUDIO"
+    ],
+    [
+      18,
+      14,
+      0,
+      21,
+      0,
+      "LATENT"
+    ],
+    [
+      19,
+      13,
+      0,
+      21,
+      1,
+      "VAE"
+    ],
+    [
+      20,
+      14,
+      0,
+      22,
+      0,
+      "LATENT"
+    ],
+    [
+      21,
+      24,
+      0,
+      22,
+      1,
+      "VAE"
+    ],
+    [
+      22,
+      16,
+      0,
+      25,
+      0,
+      "CLIP"
+    ],
+    [
+      23,
+      13,
+      0,
+      25,
+      1,
+      "VAE"
+    ],
+    [
+      24,
+      24,
+      0,
+      25,
+      2,
+      "VAE"
+    ],
+    [
+      30,
+      23,
+      0,
+      27,
+      0,
+      "MODEL"
+    ],
+    [
+      31,
+      16,
+      0,
+      27,
+      1,
+      "CLIP"
+    ],
+    [
+      32,
+      27,
+      0,
+      28,
+      0,
+      "MODEL"
+    ],
+    [
+      33,
+      28,
+      0,
+      30,
+      0,
+      "MODEL"
+    ],
+    [
+      34,
+      30,
+      0,
+      31,
+      0,
+      "SIGMAS"
+    ],
+    [
+      35,
+      26,
+      18,
+      32,
+      0,
+      "STRING"
+    ],
+    [
+      36,
+      8,
+      0,
+      33,
+      0,
+      "IMAGE"
+    ],
+    [
+      37,
+      22,
+      0,
+      33,
+      1,
+      "AUDIO"
+    ],
+    [
+      48,
+      6,
+      0,
+      26,
+      0,
+      "INT"
+    ],
+    [
+      49,
+      6,
+      1,
+      26,
+      1,
+      "INT"
+    ],
+    [
+      50,
+      19,
+      0,
+      26,
+      2,
+      "FLOAT"
+    ],
+    [
+      51,
+      6,
+      0,
+      25,
+      22,
+      "INT"
+    ],
+    [
+      52,
+      6,
+      1,
+      25,
+      23,
+      "INT"
+    ],
+    [
+      53,
+      18,
+      1,
+      25,
+      24,
+      "INT"
+    ],
+    [
+      54,
+      26,
+      0,
+      25,
+      3,
+      "IMAGE"
+    ],
+    [
+      55,
+      26,
+      1,
+      25,
+      4,
+      "IMAGE"
+    ],
+    [
+      56,
+      26,
+      2,
+      25,
+      5,
+      "IMAGE"
+    ],
+    [
+      57,
+      26,
+      3,
+      25,
+      6,
+      "IMAGE"
+    ],
+    [
+      58,
+      26,
+      4,
+      25,
+      7,
+      "IMAGE"
+    ],
+    [
+      59,
+      26,
+      5,
+      25,
+      8,
+      "IMAGE"
+    ],
+    [
+      60,
+      26,
+      6,
+      25,
+      9,
+      "IMAGE"
+    ],
+    [
+      61,
+      26,
+      7,
+      25,
+      10,
+      "IMAGE"
+    ],
+    [
+      62,
+      26,
+      8,
+      25,
+      11,
+      "IMAGE"
+    ],
+    [
+      63,
+      26,
+      9,
+      25,
+      12,
+      "IMAGE"
+    ],
+    [
+      64,
+      26,
+      10,
+      25,
+      13,
+      "IMAGE"
+    ],
+    [
+      65,
+      26,
+      11,
+      25,
+      14,
+      "IMAGE"
+    ],
+    [
+      66,
+      26,
+      12,
+      25,
+      15,
+      "AUDIO"
+    ],
+    [
+      67,
+      26,
+      13,
+      25,
+      16,
+      "AUDIO"
+    ],
+    [
+      68,
+      26,
+      14,
+      25,
+      17,
+      "AUDIO"
+    ],
+    [
+      69,
+      26,
+      15,
+      25,
+      18,
+      "AUDIO"
+    ],
+    [
+      70,
+      26,
+      16,
+      25,
+      19,
+      "AUDIO"
+    ],
+    [
+      71,
+      26,
+      17,
+      25,
+      20,
+      "AUDIO"
+    ],
+    [
+      72,
+      26,
+      18,
+      25,
+      21,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "START + REFERENCES",
+      "bounding": [
+        600,
+        600,
+        1950,
+        1500
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "H3 MODELS + LoRAs",
+      "bounding": [
+        2950,
+        650,
+        700,
+        1050
+      ],
+      "color": "#a1309b",
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "H3 CORE GENERATION",
+      "bounding": [
+        3680,
+        580,
+        1250,
+        1300
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "NATIVE H3 — 24 FPS · PRIMARY OUTPUT",
+      "bounding": [
+        4950,
+        620,
+        1300,
+        420
+      ],
+      "color": "#3f9e64",
+      "flags": {}
+    },
+    {
+      "id": 5,
+      "title": "OPTIONAL — RIFE 48 FPS",
+      "bounding": [
+        4950,
+        1080,
+        1300,
+        470
+      ],
+      "color": "#a1309b",
+      "flags": {}
+    },
+    {
+      "id": 6,
+      "title": "OPTIONAL — UPSCALE · BYPASSED BY DEFAULT",
+      "bounding": [
+        4950,
+        1550,
+        1300,
+        420
+      ],
+      "color": "#a1309b",
+      "flags": {}
+    },
+    {
+      "id": 7,
+      "title": "NOTES / TROUBLESHOOTING",
+      "bounding": [
+        600,
+        2160,
+        2500,
+        520
+      ],
+      "color": "#555555",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6115909044841467,
+      "offset": [
+        -2735.2679489918987,
+        -784.345994035123
+      ]
+    },
+    "frontendVersion": "1.49.6",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
