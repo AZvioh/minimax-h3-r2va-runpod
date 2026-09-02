@@ -9,13 +9,15 @@ COMFY_SRC_FALLBACK="/ComfyUI"
 
 LOG_FILE_MAIN="${WORKSPACE_ROOT}/comfyui.log"
 LOG_FILE_USER="${COMFYUI_DIR}/user/comfyui_${COMFYUI_PORT}.log"
+EXIT_FILE="${WORKSPACE_ROOT}/comfyui_exit.txt"
 
 log() {
   echo "[h3-template] $*"
 }
 
 # Prevent duplicate ComfyUI launches
-if pgrep -f "python main.py.*--port ${COMFYUI_PORT}" >/dev/null; then
+if pgrep -f "python .*main.py.*--port ${COMFYUI_PORT}" >/dev/null 2>&1 || \
+   pgrep -f "python main.py.*--port ${COMFYUI_PORT}" >/dev/null 2>&1; then
   log "ComfyUI already running on port ${COMFYUI_PORT}. Exiting."
   exit 0
 fi
@@ -38,6 +40,7 @@ mkdir -p \
   "${COMFYUI_DIR}/input" \
   "${COMFYUI_DIR}/output" \
   "${COMFYUI_DIR}/temp" \
+  "${COMFYUI_DIR}/user" \
   "${COMFYUI_DIR}/user/default/workflows" \
   "${COMFYUI_DIR}/models/checkpoints" \
   "${COMFYUI_DIR}/models/diffusion_models" \
@@ -64,10 +67,8 @@ if [[ -x "${TEMPLATE_ROOT}/scripts/download_civitai_loras.sh" ]]; then
   bash "${TEMPLATE_ROOT}/scripts/download_civitai_loras.sh" || true
 fi
 
-# Clean old lock file if no other process is using the DB
-if [[ -f "${COMFYUI_DIR}/user/comfyui.db.lock" ]]; then
-  rm -f "${COMFYUI_DIR}/user/comfyui.db.lock" || true
-fi
+# Clean old lock file if present
+rm -f "${COMFYUI_DIR}/user/comfyui.db.lock" || true
 
 cd "${COMFYUI_DIR}"
 
@@ -79,8 +80,29 @@ log "Port: ${COMFYUI_PORT}"
 log "ComfyUI dir: ${COMFYUI_DIR}"
 log "Logs: ${LOG_FILE_MAIN} and ${LOG_FILE_USER}"
 
-exec python main.py \
+# Default runtime args:
+# - keep async offload
+# - disable intermediate cache to avoid the runaway RAM growth you were seeing
+DEFAULT_ARGS="--disable-auto-launch --async-offload --cache-none"
+COMFYUI_EXTRA_ARGS="${COMFYUI_EXTRA_ARGS:-$DEFAULT_ARGS}"
+
+log "Args: ${COMFYUI_EXTRA_ARGS}"
+
+# Split args safely into an array
+read -r -a EXTRA_ARGS_ARR <<< "${COMFYUI_EXTRA_ARGS}"
+
+# Clear last exit marker
+rm -f "${EXIT_FILE}" || true
+
+export PYTHONUNBUFFERED=1
+
+set +e
+python -X faulthandler main.py \
   --listen 0.0.0.0 \
   --port "${COMFYUI_PORT}" \
-  --disable-auto-launch \
-  --async-offload
+  "${EXTRA_ARGS_ARR[@]}"
+EXIT_CODE=$?
+set -e
+
+echo "[$(date '+%F %T')] ComfyUI exited with code ${EXIT_CODE}" | tee -a "${EXIT_FILE}" "${LOG_FILE_MAIN}" "${LOG_FILE_USER}"
+exit "${EXIT_CODE}"
