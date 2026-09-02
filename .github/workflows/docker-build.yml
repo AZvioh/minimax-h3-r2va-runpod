@@ -7,6 +7,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -22,6 +25,7 @@ jobs:
           sudo rm -rf /usr/local/share/boost
           sudo rm -rf /usr/local/share/powershell
           sudo rm -rf /opt/az
+
           sudo apt-get clean
 
           docker system prune -af || true
@@ -44,6 +48,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: mattdvs/minimax-h3-r2va-oneclick:v1
+          tags: |
+            mattdvs/minimax-h3-r2va-oneclick:v2
           platforms: linux/amd64
           provenance: false
