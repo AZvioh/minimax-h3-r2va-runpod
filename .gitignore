@@ -1,0 +1,15 @@
+.env
+.env.*
+!.env.example
+
+*.token
+*.key
+
+secrets/
+credentials/
+
+__pycache__/
+*.pyc
+
+.DS_Store
+Thumbs.db
