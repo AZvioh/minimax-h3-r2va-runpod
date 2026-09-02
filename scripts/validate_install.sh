@@ -21,9 +21,8 @@ need() {
   fi
 }
 
-# Core ComfyUI + workflow
+# Core ComfyUI
 need "${COMFYUI_DIR}/main.py"
-need "${WORKFLOW_PATH}"
 
 # Required custom nodes
 need "${COMFYUI_DIR}/custom_nodes/ComfyUI-MiniMaxRefPack"
@@ -68,13 +67,16 @@ if [[ "${DOWNLOAD_H3_MODELS:-true}" == "true" ]]; then
   fi
 fi
 
-# Stop before JSON validation if required files are already missing
 if [[ "${fail}" != "0" ]]; then
   echo "[validate] Install validation FAILED." >&2
   exit 1
 fi
 
-python - <<'PY'
+# Workflow is optional.
+if [[ -f "${WORKFLOW_PATH}" ]]; then
+  log "Bundled workflow found; validating JSON..."
+
+  python - <<'PY'
 import json
 import os
 import sys
@@ -101,32 +103,11 @@ if not isinstance(nodes, list):
     print("[validate] ERROR: workflow does not contain a valid nodes list.", file=sys.stderr)
     raise SystemExit(1)
 
-types = {
-    node.get("type")
-    for node in nodes
-    if isinstance(node, dict)
-}
-
-required = {
-    "MiniMaxH3ReferenceToVideo",
-    "MiniMaxH3ReferencePack",
-    "LoraLoaderModelOnly",
-    "SamplerCustomAdvanced",
-    "VAEDecodeAudio",
-    "CreateVideo",
-}
-
-missing = sorted(required - types)
-
-if missing:
-    print(
-        "[validate] ERROR: workflow missing required node types: "
-        + ", ".join(missing),
-        file=sys.stderr,
-    )
-    raise SystemExit(1)
-
-print("[validate] Workflow JSON and required node types OK.")
+print("[validate] Workflow JSON OK.")
 PY
+
+else
+  log "No bundled workflow present. That's OK; drag/drop your workflow manually."
+fi
 
 log "Install OK."
