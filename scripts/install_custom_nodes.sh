@@ -7,7 +7,7 @@ CUSTOM_DIR="${COMFYUI_DIR}/custom_nodes"
 RGTHREE_REF="${RGTHREE_REF:-main}"
 VHS_REF="${VHS_REF:-main}"
 RIFE_REF="${RIFE_REF:-main}"
-UPSCALER_REF="${UPSCALER_REF:-main}"
+UPSCALER_REF="${UPSCALER_REF:-master}"
 REFPACK_REF="${REFPACK_REF:-main}"
 
 mkdir -p "${CUSTOM_DIR}"
@@ -79,7 +79,7 @@ install_repo() {
 
 install_repo \
   "ComfyUI-MiniMaxRefPack" \
-  "https://github.com/numz/ComfyUI-MiniMaxRefPack.git" \
+  "https://github.com/Hearmeman24/ComfyUI-MiniMaxRefPack.git" \
   "${REFPACK_REF}" \
   "true"
 
