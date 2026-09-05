@@ -48,7 +48,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: |
-            mattdvs/minimax-h3-r2va-oneclick:v2
           platforms: linux/amd64
           provenance: false
+          tags: |
+            mattdvs/minimax-h3-r2va-oneclick:v3
