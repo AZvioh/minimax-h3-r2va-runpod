@@ -26,7 +26,7 @@ RUN apt-get update && \
 # Custom-node versions
 ARG RGTHREE_REF=6b76ee6f2c5a007710b5a16f97c94330d6ecc871
 ARG VHS_REF=4ee72c065db22c9d96c2427954dc69e7b908444b
-ARG RIFE_REF=main
+ARG RIFE_REF=master
 ARG UPSCALER_REF=master
 ARG REFPACK_REF=main
 
