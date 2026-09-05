@@ -26,8 +26,8 @@ RUN apt-get update && \
 # Custom-node versions
 ARG RGTHREE_REF=6b76ee6f2c5a007710b5a16f97c94330d6ecc871
 ARG VHS_REF=4ee72c065db22c9d96c2427954dc69e7b908444b
-ARG RIFE_REF=51d88c0cdb49308dd3ade9edd4a5c1bcdf4ec72
-ARG UPSCALER_REF=6b8951d7413b41d9639be91888ef65b63827b930
+ARG RIFE_REF=main
+ARG UPSCALER_REF=master
 ARG REFPACK_REF=main
 
 COPY scripts/install_custom_nodes.sh /opt/h3-template/scripts/install_custom_nodes.sh
